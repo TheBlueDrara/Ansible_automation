@@ -2,16 +2,30 @@
   hosts: db
   user: docker
   become: yes
+  gather_facts: yes
 
   tasks:
-    - name: Install all the requirements
-      apt:
-        update_cache: yes
-        name:
-          - nginx
-          - nginx-extras
-          - python3
-          - pip
-          - python3-venv
-        state: present
+    - block:
+        - name: Install tools on Debian linux
+          apt:
+            update_cache: yes
+            name:
+              - nginx
+              - nginx-extras
+              - python3
+              - pip
+              - python3-venv
+            state: present
       when: ansible_facts['os_family'] == 'Debian'
+      
+    - block:
+        - name: Install tools on Rocky linux
+          dnf:
+            name:
+              - nginx
+              - nginx-extras
+              - python3
+              - pip
+              - python3-venv
+            state: present
+      when: ansible_facts['os_family'] == 'RedHat'
