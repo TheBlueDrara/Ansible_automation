@@ -23,9 +23,12 @@
           dnf:
             name:
               - nginx
-              - nginx-extras
               - python3
-              - pip
-              - python3-venv
+              - python3-pip
             state: present
+
+        - name: Install venv
+          pip:
+            name: virtualenv
+            executable: pip3      
       when: ansible_facts['os_family'] == 'RedHat'
