@@ -5,6 +5,15 @@
   gather_facts: yes
 
   tasks:
+    - name: Copy project files to /home/details_app/
+      copy:
+        src: "/home/ansible/ansible_course/Ansible_Task/{{ item }}"
+        dest: /home/details_app/
+      loop:
+        - src
+        - config
+        - automation
+
     - block:
         - name: Install tools on Debian linux
           apt:
