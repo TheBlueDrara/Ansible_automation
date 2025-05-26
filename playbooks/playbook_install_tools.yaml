@@ -1,5 +1,9 @@
-
+-
 - block:
+    - name: Notify before installing tools
+      debug:
+        msg: "Starting to install tools, it may take a while"
+
     - name: Install Tools on Debian based systems
       apt:
         update_cache: yes
@@ -13,16 +17,19 @@
   when: ansible_facts['os_family'] == 'Debian'
 
 - block:
+    - name: Notfiy before installing tools
+      debug:
+        msg: "Starting to install tools, it may take a while"
     - name: Install Tools on RedHat Based system
       dnf:
-      name:
-        - nginx
-        - python3
-        - python3-pip
-      state: present
+        name:
+          - nginx
+          - python3
+          - python3-pip
+        state: present
      
     - name: Install Venv
       pip:
         name: virtualenv
         executable: pip3
-  when: ansible_facts['os_familiy'] == 'RedHat' 
+  when: ansible_facts['os_family'] == 'RedHat' 
