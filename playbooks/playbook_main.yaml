@@ -6,8 +6,9 @@
   gather_facts: yes
 
   tasks:
-    - name: Create Details_app user
+    - name: Install all the tools
       import_tasks: playbook_install_tools.yaml
-        #- name: Install Tools
+    - name: Create Details_app user
+      import_tasks: playbook_user_creation.yaml
         #- name: Copy Project Files
 
