@@ -1,0 +1,13 @@
+
+
+- name: User Creation
+    user:
+      name: details_app
+      shell: /bin/bash
+      create_home: yes
+
+- name: Add the user to Sudoers group
+  copy:
+    dest: "/etc/sudoers.d/details_app"
+    content: "details_app ALL=(ALL) NOPASSWD:ALL"  
+    mode: '0440'

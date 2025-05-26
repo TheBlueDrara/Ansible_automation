@@ -1,0 +1,12 @@
+-
+  name: Main Playbook
+  hosts: db
+  user: docker
+  become: yes
+  gather_facts: yes
+
+  tasks:
+    - name: Create Details_app user
+    - name: Install Tools
+    - name: Copy Project Files
+

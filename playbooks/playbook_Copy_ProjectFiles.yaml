@@ -1,0 +1,10 @@
+
+
+- name: Copy Project Files to Dest
+  copy:
+    src: "/home/ansible/ansible_course/Ansible_Task/{{ item }}"
+    dest: /home/deails_app/
+  loop:
+    - config
+    - automation
+    - src
