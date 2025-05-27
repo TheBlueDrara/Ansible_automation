@@ -1,6 +1,6 @@
+-
 
-
-- name: Copy Project Files to Dest
+- name: Copy Project Files to details_app home folder
   copy:
     src: "/home/ansible/ansible_course/Ansible_Task/{{ item }}"
     dest: /home/deails_app/

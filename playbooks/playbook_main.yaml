@@ -8,7 +8,10 @@
   tasks:
     - name: Install all the tools
       import_tasks: playbook_install_tools.yaml
+
     - name: Create Details_app user
       import_tasks: playbook_user_creation.yaml
-        #- name: Copy Project Files
+
+    - name: Copy Project Files
+      import_tasks: playbook_copy_project_files.yaml
 

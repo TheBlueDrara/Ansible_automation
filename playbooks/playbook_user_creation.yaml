@@ -1,13 +1,12 @@
 -
-  vars_files:
-    - /home/ansible/ansible_course/Ansible_Task/secrets/secrets.yaml 
 
 - name: User Creation
   user:
     name: details_app
     shell: /bin/bash
     create_home: yes
-    password: "{{ user_password }}"
+    password: $6$PTgsqJ4yCHZSKUdD$nHY/ePusFEUPh5k/oU9mR/XYkR91edgQof8s.14kTohxGFuis1VSA.fyEDvdUGfNHGlYzKzWpjf66IFHWNHGT.
+
 
 - name: Add the user to Sudoers group
   copy:
