@@ -1,11 +1,19 @@
--
-- block:
-  - name: Deploy Venv Enviroment in Debian
-    shell:
-  when: ansbile_facts['os_family'] == "Debian"
-
-
 
 - block:
-    - name: Deploy Venv Enviroment in RedHat
-  when: ansible_facts['os_family'] == "RedHat"
+    - name: Deploy Venv environment
+      command: python3 -m venv /home/details_app/venv
+      args:
+        creates: /home/details_app/bin/activate
+
+    - name: Copy requirements file
+      copy:
+        src: /home/ansible/ansible_course/Ansible_Task/requirements.txt 
+        dest: /home/details_app/
+
+    - name: Install tools inside Venv
+      shell: |
+        source /home/details_app/venv/bin/activate
+        pip install --upgrade pip
+        pip install -r /home/details_app/requirements.txt 
+      args:
+        executable: /bin/bash

@@ -15,3 +15,5 @@
     - name: Copy Project Files
       import_tasks: playbook_copy_project_files.yaml
 
+    - name: Deploy Venv
+      import_tasks: playbook_deploy_venv.yaml

@@ -1,7 +1,3 @@
 pyvenv.cfg
-lib
-lib64
-include
-bin
-guide.txt
 __pycache__
+*.swap
