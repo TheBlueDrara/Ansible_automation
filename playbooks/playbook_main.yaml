@@ -17,3 +17,6 @@
 
     - name: Deploy Venv
       import_tasks: playbook_deploy_venv.yaml
+
+    - name: Nginx Config
+      import_tasks: playbook_nginx_config.yaml
