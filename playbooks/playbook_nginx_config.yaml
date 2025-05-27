@@ -3,9 +3,10 @@
     - name: Config Nginx
       shell: |
         touch /etc/nginx/sites-available/bla.com 
-        cat /home/details_app/config/nginx.conf >> /etc/nginx/sites-available/bla.com
+        cat /home/details_app/config/nginx.conf > /etc/nginx/sites-available/bla.com
         ln -s /etc/nginx/sites-available/bla.com /etc/nginx/sites-enabled/
         nginx -s reload
+        echo "127.0.0.1 bla.com" >> /etc/hosts
       args: 
         executable: /bin/bash
 
