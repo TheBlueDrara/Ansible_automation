@@ -5,6 +5,7 @@
         touch /etc/nginx/sites-available/bla.com 
         cat /home/details_app/config/nginx.conf > /etc/nginx/sites-available/bla.com
         ln -s /etc/nginx/sites-available/bla.com /etc/nginx/sites-enabled/
+        sudo nginx
         nginx -s reload
         echo "127.0.0.1 bla.com" >> /etc/hosts
       args: 
@@ -14,7 +15,7 @@
     - name: Run Gunicorn
       shell: |
         source /home/details_app/venv/bin/activate
-        gunicorn -c /home/details_app/config/gunicorn_conf.py src.my_app.app:app
+        gunicorn -c config/gunicorn_conf.py src.my_app.app:app
       args:
         chdir: /home/details_app/
         executable: /bin/bash
