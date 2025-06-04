@@ -15,7 +15,7 @@
     - name: Run Gunicorn
       shell: |
         source /home/details_app/venv/bin/activate
-        gunicorn -c config/gunicorn_conf.py src.my_app.app:app
+        nohup gunicorn -c config/gunicorn_conf.py src.my_app.app:app &
       args:
         chdir: /home/details_app/
         executable: /bin/bash
