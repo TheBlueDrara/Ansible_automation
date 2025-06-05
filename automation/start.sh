@@ -33,7 +33,8 @@ function deploy_lab(){
 
 
 function deploy_playbook(){
-
-    docker compose exec -it ansible-host ansible-playbook playbooks/playbook_main.yaml
+  docker compose exec -it ansible-host bash -c "cd ~/Ansible_automation && ansible-playbook -i hosts.ini playbooks/playbook_main.yaml"
 }
+
+
 main
