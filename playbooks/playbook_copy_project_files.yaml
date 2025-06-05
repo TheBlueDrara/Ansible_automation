@@ -2,7 +2,7 @@
 
 - name: Copy Project Files to details_app home folder
   copy:
-    src: "/home/ansible/ansible_course/Ansible_Task/{{ item }}"
+    src: "/Ansible_automation/{{ item }}"
     dest: /home/details_app/
   loop:
     - config
