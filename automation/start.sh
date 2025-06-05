@@ -8,7 +8,6 @@ set -o nounset
 set -o errexit
 set -o pipefail
 #################### End Safe Header ##########################
-source .
 
 
 function main(){
@@ -22,16 +21,19 @@ function main(){
     fi
 
     deploy_lab
-    
+    deploy_playbook    
 }
 
 
 function deploy_lab(){
 
     docker compose up -d
-    docker exec -it docker-ansible-host-1 git clone https://github.com/TheBlueDrara/Ansible_automation.git
-
-
+    docker exec -it ansible-host git clone https://github.com/TheBlueDrara/Ansible_automation.git
 }
 
+
+function deploy_playbook(){
+
+    ansible-playbook playbook/playbook_main.yaml
+}
 main
