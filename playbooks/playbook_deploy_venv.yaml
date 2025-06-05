@@ -7,7 +7,7 @@
 
     - name: Copy requirements file
       copy:
-        src: /home/ansible/ansible_course/Ansible_Task/requirements.txt 
+        src: /home/ansible/Ansible_automation/requirements.txt 
         dest: /home/details_app/
 
     - name: Install tools inside Venv
