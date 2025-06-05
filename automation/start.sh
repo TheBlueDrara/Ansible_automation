@@ -28,13 +28,12 @@ function main(){
 function deploy_lab(){
 
     docker compose up -d
-    sleep 5 
     docker compose exec -it ansible-host git clone https://github.com/TheBlueDrara/Ansible_automation.git
 }
 
 
 function deploy_playbook(){
 
-    ansible-playbook playbook/playbook_main.yaml
+    docker compose exec -it ansible-host ansible-playbook playbooks/playbook_main.yaml
 }
 main
