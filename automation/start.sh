@@ -28,7 +28,8 @@ function main(){
 function deploy_lab(){
 
     docker compose up -d
-    docker exec -it ansible-host git clone https://github.com/TheBlueDrara/Ansible_automation.git
+    sleep 5 
+    docker compose exec -it ansible-host git clone https://github.com/TheBlueDrara/Ansible_automation.git
 }
 
 
