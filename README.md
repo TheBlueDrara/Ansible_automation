@@ -3,47 +3,47 @@
 
 ## Overview
 
-An Automation to deploy Flask application across 2 containers, one Debian based and one RedHat based, Using Gunicorn as an application server and Nginx as a web server proxy
+An Automation to deploy Flask application across 2 containers, one Debian based and one RedHat based, Using Gunicorn as an application server and Nginx as a web server proxy.
+
+
 
 ## Prerequisites
 
 - Docker and Docker compose installed 
-- An Ansbile lab, you can clone this Github repository made by @Silent_Mobius [here](https://gitlab.com/vaiolabs-io/ansible-shallow-dive)
-
+- Bash
+- Debain based family distro
 
 ## Running the Playbook
 
-First Deploy the lab 
+```
+cd ./automation
+bash start.sh
+```
+let it run and your'e done
+
+run this command to see if the proxy server working correctly
 
 ```
-cd ~/Desktop
-git clone https://gitlab.com/vaiolabs-io/ansible-shallow-dive.git
-cd ansible-shallow-dive/99_misc/setup/docker
-docker compose up -d
-
-```
-Now clone the project into the container
-
-```
-docker exec -it docker-ansible-host-1 /bin/bash
-git clone https://github.com/TheBlueDrara/Ansible_lab_practice.git
-
-```
-Run the Playbook_main
-
-```
-cd Ansible_automation
-ansible-playbook playbook/playbook_main
+curl -I http://bla.com
 ```
 
-let it run
+run this command to see if the application server working correctly
+
+```
+curl -I http://localhost:8000
+```
 
 ## Features
 
-- 
-
+- A ready lab for ansbile to run on that is deployed via docker compose
+- Creates a ready small flask app that you can module 
+- Gunicorn as a application server
+- Nginx as a proxy server
 
 Daily WarHammer quote
 
 ```
+Rejoice, for we are blessed with decay. The Plaguefather’s love is eternal, and his gifts are ever flowing.
+
+— Attributed to a Plague Marine of the Death Guard
 ```
